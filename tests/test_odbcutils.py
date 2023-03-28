@@ -10,7 +10,7 @@ log.addHandler(console_handler)
 
 
 TEST_CONN = (
-    r"DRIVER={SQL Server};SERVER=localhost;DATABASE=tempdb;uid=sa;pwd=dbatools.I0"
+    r"DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost;DATABASE=tempdb;uid=sa;pwd=dbatools.I0"
 )
 
 
