@@ -16,6 +16,9 @@ pip install -r requirements.txt
 
 black .
 flake8 .
+
+$env:TEST_CONN = "DRIVER={SQL Server};SERVER=W19-PMS-SQL\SQL2019Dev;DATABASE=msautotest;uid=msautotest;pwd=msautotest"
+
 mypy odbcutils.py tests
 
     C:\Python310\python.exe -m pip install --upgrade pip

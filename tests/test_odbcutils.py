@@ -1,6 +1,7 @@
 import odbcutils
 import pytest
 import logging
+import os
 
 log = logging.getLogger("odbcutils")
 log.setLevel(logging.DEBUG)
@@ -8,10 +9,11 @@ log.setLevel(logging.DEBUG)
 console_handler = logging.StreamHandler()
 log.addHandler(console_handler)
 
-
-TEST_CONN = (
-    r"DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost;DATABASE=tempdb;uid=sa;pwd=dbatools.I0"
-)
+if os.environ["TEST_CONN"]:
+    TEST_CONN = os.environ["TEST_CONN"]
+    log.info(f"Using test connection string {TEST_CONN}")
+else:
+    TEST_CONN = r"DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost;DATABASE=tempdb;uid=sa;pwd=dbatools.I0"
 
 
 @pytest.fixture
@@ -84,15 +86,15 @@ def test_get_records_as_dict_with_params():
     assert recs[0]["MyValue"] == "B"
 
 
-@pytest.mark.usefixtures("setup_db")
-def test_get_records_as_dict_single_value():
-    res = odbcutils.get_records_as_dict(
-        TEST_CONN,
-        "SELECT MyValue FROM test WHERE MyKey = ?",
-        params=[2],
-        single_record=True,
-    )
-    assert res == "B"
+# @pytest.mark.usefixtures("setup_db")
+# def test_get_records_as_dict_single_value():
+#    res = odbcutils.get_records_as_dict(
+#        TEST_CONN,
+#        "SELECT MyValue FROM test WHERE MyKey = ?",
+#        params=[2],
+#        single_record=True,
+#    )
+#    assert res == "B"
 
 
 if __name__ == "__main__":

@@ -62,7 +62,7 @@ def get_records_as_dict(
     connstring: str = "",
     sql: str = "",
     params: list | None = None,
-    single_record: bool = False,
+    # single_record: bool = False,
 ) -> typing.Any:
     """
     Execute SQL and return the resultset in a dictionary
@@ -83,10 +83,12 @@ def get_records_as_dict(
         for row in cursor.fetchall():
             recs.append(OrderedDict(zip(columns, row)))
 
-    if single_record:
-        return _get_single(recs)
-    else:
-        return recs
+    # if single_record:
+    #    return _get_single(recs)
+    # else:
+    #    return recs
+
+    return recs
 
 
 def save_records(connstring: str = "", sql: str = "", recs: list | None = None) -> None:
