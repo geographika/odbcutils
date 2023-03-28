@@ -66,7 +66,6 @@ jobs:
           pip install build
           python -m build --wheel
           python -m build --sdist
-          ls
 
   # see https://github.com/marketplace/actions/coveralls-github-action
   # we can't use coveralls-github-action as it doesn't support xml output
@@ -92,6 +91,9 @@ jobs:
     steps:
       - name: List contents
         run: |
+          pwd
+          ls
+          cd
           pwd
           ls
       - name: Publish package
