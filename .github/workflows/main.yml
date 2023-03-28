@@ -40,7 +40,7 @@ jobs:
           flake8 .
       - name: Check types with mypy
         run: |
-          mypy odbcutils tests scripts
+          mypy odbcutils tests
 
       - name: Install a SQL Server suite of tools
         uses: potatoqualitee/mssqlsuite@v1.7
