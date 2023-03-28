@@ -9,7 +9,7 @@ log.setLevel(logging.DEBUG)
 console_handler = logging.StreamHandler()
 log.addHandler(console_handler)
 
-if os.environ["TEST_CONN"]:
+if "TEST_CONN" in os.environ:
     TEST_CONN = os.environ["TEST_CONN"]
     log.info(f"Using test connection string {TEST_CONN}")
 else:
