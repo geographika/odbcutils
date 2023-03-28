@@ -9,7 +9,9 @@ console_handler = logging.StreamHandler()
 log.addHandler(console_handler)
 
 
-TEST_CONN = r"DRIVER={SQL Server};SERVER=localhost;DATABASE=tempdb;uid=sa;pwd=dbatools.I0"
+TEST_CONN = (
+    r"DRIVER={SQL Server};SERVER=localhost;DATABASE=tempdb;uid=sa;pwd=dbatools.I0"
+)
 
 
 @pytest.fixture
@@ -26,7 +28,6 @@ def setup_db():
 
 @pytest.mark.usefixtures("setup_db")
 def test_execute():
-
     sql = "INSERT INTO test VALUES (4, 'D')"
     odbcutils.execute(TEST_CONN, sql=sql)
 
@@ -65,7 +66,9 @@ def test_get_records_single_value():
 
 @pytest.mark.usefixtures("setup_db")
 def test_get_records_as_dict():
-    recs = odbcutils.get_records_as_dict(TEST_CONN, "SELECT MyKey, MyValue FROM test ORDER BY MyKey ASC")
+    recs = odbcutils.get_records_as_dict(
+        TEST_CONN, "SELECT MyKey, MyValue FROM test ORDER BY MyKey ASC"
+    )
     assert len(recs) == 3
     assert recs[0]["MyKey"] == 1
     assert recs[0]["MyValue"] == "A"
@@ -73,7 +76,9 @@ def test_get_records_as_dict():
 
 @pytest.mark.usefixtures("setup_db")
 def test_get_records_as_dict_with_params():
-    recs = odbcutils.get_records_as_dict(TEST_CONN, "SELECT MyKey, MyValue FROM test WHERE MyKey = ?", params=[2])
+    recs = odbcutils.get_records_as_dict(
+        TEST_CONN, "SELECT MyKey, MyValue FROM test WHERE MyKey = ?", params=[2]
+    )
     assert len(recs) == 1
     assert recs[0]["MyKey"] == 2
     assert recs[0]["MyValue"] == "B"
@@ -81,10 +86,13 @@ def test_get_records_as_dict_with_params():
 
 @pytest.mark.usefixtures("setup_db")
 def test_get_records_as_dict_single_value():
-    res = odbcutils.get_records_as_dict(TEST_CONN, "SELECT MyValue FROM test WHERE MyKey = ?", params=[2], single_record=True)
+    res = odbcutils.get_records_as_dict(
+        TEST_CONN,
+        "SELECT MyValue FROM test WHERE MyKey = ?",
+        params=[2],
+        single_record=True,
+    )
     assert res == "B"
-
-
 
 
 if __name__ == "__main__":

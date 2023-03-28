@@ -2,7 +2,9 @@ import re
 from setuptools import setup
 from io import open
 
-(__version__,) = re.findall('__version__ = "(.*)"', open("odbcutils/__init__.py").read())
+(__version__,) = re.findall(
+    '__version__ = "(.*)"', open("odbcutils/__init__.py").read()
+)
 
 
 def readme():

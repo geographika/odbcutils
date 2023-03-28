@@ -33,7 +33,7 @@ def get_records(
     sql: str = "",
     params: list | None = None,
     single_value: bool = False,
-) -> typing.Any: # list[pyodbc.Row] | typing.Any
+) -> typing.Any:  # list[pyodbc.Row] | typing.Any
     """
     Execute the SQL on the database and return the results
     """
@@ -101,7 +101,9 @@ def save_records(connstring: str = "", sql: str = "", recs: list | None = None) 
         recs = cursor.executemany(sql, recs)
 
 
-def execute_from_file(connstring: str = "", fn: str = "", params: list | None = None) -> None:
+def execute_from_file(
+    connstring: str = "", fn: str = "", params: list | None = None
+) -> None:
     """
     Execute SQL statements stored in a file
     """
