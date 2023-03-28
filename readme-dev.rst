@@ -4,11 +4,26 @@ Developer Notes
 Virtual Environment
 -------------------
 
-.. code-block:: console
 
-    C:\Python27\scripts\virtualenv C:\VirtualEnvs\odbcutils
-    C:\VirtualEnvs\odbcutils\scripts\activate.bat
-    pip install -r D:\GitHub\odbcutils\requirements-dev.txt
+
+$VENV_LOCATION = "C:\VirtualEnvs\odbcutils"
+$PROJECT_LOCATION = "D:\GitHub\odbcutils"
+."$VENV_LOCATION\Scripts\activate.ps1"
+
+cd $PROJECT_LOCATION
+
+pip install -r requirements.txt
+
+black .
+flake8 .
+mypy odbcutils.py tests
+
+    C:\Python310\python.exe -m pip install --upgrade pip
+    C:\Python310\Scripts\pip install virtualenv
+    C:\Python310\Scripts\virtualenv C:\VirtualEnvs\odbcutils
+    C:\VirtualEnvs\odbcutils\scripts\activate.ps1
+
+    pip install -r D:\GitHub\odbcutils\requirements.txt
     pip install -e D:\GitHub\odbcutils
 
 Testing
@@ -16,8 +31,9 @@ Testing
 
 .. code-block:: console
 
-    C:\VirtualEnvs\odbcutils\scripts\activate.bat
-    cd /D D:\GitHub\odbcutils
+    C:\VirtualEnvs\odbcutils\scripts\activate.ps1
+    cd D:\GitHub\odbcutils
+    black .
     flake8 --max-line-length=120
     py.test tests/
 

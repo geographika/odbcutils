@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>odbcutils</Name>
     <RootNamespace>odbcutils</RootNamespace>
+    <InterpreterId>MSBuild|odbcutils|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,6 +23,35 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="odbcutils.py" />
+    <Compile Include="setup.py" />
+    <Compile Include="tests\test_odbcutils.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".pypirc" />
+    <Content Include=".travis.yml" />
+    <Content Include="LICENSE" />
+    <Content Include="MANIFEST.in" />
+    <Content Include="readme-dev.rst" />
+    <Content Include="README.rst" />
+    <Content Include="requirements.txt" />
+    <Content Include="setup.cfg" />
+    <Content Include="tox.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="C:\VirtualEnvs\odbcutils\">
+      <Id>odbcutils</Id>
+      <Version>3.10</Version>
+      <Description>odbcutils (Python 3.10 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

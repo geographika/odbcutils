@@ -1,7 +1,0 @@
-pyodbc
-flake8
-pytest
-pytest-cov
-tox
-virtualenv
-twine
