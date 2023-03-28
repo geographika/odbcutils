@@ -56,6 +56,8 @@ jobs:
         env:
           COVERALLS_FLAG_NAME: ${{ matrix.test-name }}
           COVERALLS_PARALLEL: true
+          # get token from https://coveralls.io/github/geographika/odbcutils
+          # and then add to https://github.com/geographika/odbcutils/settings/secrets/actions
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build wheel and source distributions
@@ -92,4 +94,5 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           user: __token__
+          # https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
           password: ${{ secrets.PYPI_API_TOKEN }}
