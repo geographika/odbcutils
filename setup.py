@@ -21,8 +21,9 @@ setup(
         # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
         "Development Status :: 3 - Alpha",
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3.10" "Intended Audience :: Developers",
-        "Topic :: Software Development :: Build Tools",
+        "Programming Language :: Python :: 3.10",
+        "Intended Audience :: Developers",
+        "Topic :: Database",
     ],
     url="http://github.com/geographika/odbcutils",
     author="Seth Girvin",
