@@ -64,8 +64,8 @@ jobs:
         run: |
           pip install wheel
           pip install build
-          python -m build --wheel
-          python -m build --sdist
+          python -m build --wheel --outdir dist/
+          python -m build --sdist --outdir dist/
 
   # see https://github.com/marketplace/actions/coveralls-github-action
   # we can't use coveralls-github-action as it doesn't support xml output
