@@ -64,8 +64,16 @@ jobs:
         run: |
           pip install wheel
           pip install build
-          python -m build --wheel --outdir dist/
-          python -m build --sdist --outdir dist/
+          python -m build --wheel
+          python -m build --sdist
+      - name: Publish to PyPI
+        # if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          # https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          verbose: true
 
   # see https://github.com/marketplace/actions/coveralls-github-action
   # we can't use coveralls-github-action as it doesn't support xml output
@@ -82,25 +90,3 @@ jobs:
         coveralls --finish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  publish:
-    name: Publish to PyPI
-    needs: test
-    runs-on: ubuntu-latest
-    container: python:3-slim
-    steps:
-      - name: List contents
-        run: |
-          pwd
-          ls
-          cd
-          pwd
-          ls
-      - name: Publish package
-        # if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          user: __token__
-          # https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
-          password: ${{ secrets.PYPI_API_TOKEN }}
-          verbose: true
