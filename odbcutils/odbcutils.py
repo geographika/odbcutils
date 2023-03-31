@@ -54,7 +54,6 @@ def get_records(
             log.debug(f"Params: {params}")
             raise
 
-
     if single_value:
         return _get_single([recs])
     else:
