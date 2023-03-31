@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c2a9b05c-0eca-4338-8307-055f506334af</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>odbcutils.py</StartupFile>
+    <StartupFile>odbcutils\odbcutils.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,17 +22,24 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="odbcutils.py" />
+    <Compile Include="odbcutils\odbcutils.py" />
+    <Compile Include="odbcutils\__init__.py" />
     <Compile Include="setup.py" />
     <Compile Include="tests\test_odbcutils.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".flake8" />
+    <Content Include=".github\dependabot.yml" />
+    <Content Include=".github\workflows\main.yml" />
+    <Content Include=".mypy.ini" />
     <Content Include=".pypirc" />
     <Content Include=".travis.yml" />
     <Content Include="LICENSE" />
     <Content Include="MANIFEST.in" />
+    <Content Include="odbcutils\py.typed" />
+    <Content Include="pytest.ini" />
     <Content Include="readme-dev.rst" />
     <Content Include="README.rst" />
     <Content Include="requirements.txt" />
@@ -40,6 +47,9 @@
     <Content Include="tox.ini" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include=".github\" />
+    <Folder Include=".github\workflows\" />
+    <Folder Include="odbcutils\" />
     <Folder Include="tests\" />
   </ItemGroup>
   <ItemGroup>

@@ -49,11 +49,14 @@ def get_records(
             else:
                 recs = cursor.execute(sql, *params).fetchall()
         except pyodbc.ProgrammingError:
-            log.error(sql)
+            log.debug(f"Connection String: {connstring}")
+            log.debug(f"SQL: {sql}")
+            log.debug(f"Params: {params}")
             raise
 
+
     if single_value:
-        return _get_single(recs)
+        return _get_single([recs])
     else:
         return recs
 

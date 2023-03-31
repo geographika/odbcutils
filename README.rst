@@ -1,7 +1,7 @@
 odbcutils
 =========
 
-| |Version| |Build Status|
+| |Version|
 
 A small helper library for executing SQL using pyodbc. 
 
@@ -29,6 +29,3 @@ Author
 
 .. |Version| image:: https://img.shields.io/pypi/v/odbcutils.svg
    :target: https://pypi.python.org/pypi/odbcutils
-
-.. |Build Status| image:: https://travis-ci.org/geographika/odbcutils.svg?branch=master
-   :target: https://travis-ci.org/geographika/odbcutils
