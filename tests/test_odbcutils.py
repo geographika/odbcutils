@@ -86,6 +86,18 @@ def test_get_records_as_dict_with_params():
     assert recs[0]["MyValue"] == "B"
 
 
+@pytest.mark.usefixtures("setup_db")
+def test_get_records_using_file():
+    recs = odbcutils.select_from_file(TEST_CONN, "./tests/select.sql", as_dict=False)
+    assert len(recs) == 3
+
+
+@pytest.mark.usefixtures("setup_db")
+def test_get_records_using_file_as_dict():
+    recs = odbcutils.select_from_file(TEST_CONN, "./tests/select.sql", as_dict=True)
+    assert len(recs) == 3
+
+
 # @pytest.mark.usefixtures("setup_db")
 # def test_get_records_as_dict_single_value():
 #    res = odbcutils.get_records_as_dict(

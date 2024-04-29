@@ -2,6 +2,7 @@
 Generic functions to load and return records
 from SQL Server
 """
+
 import pyodbc
 import logging
 from collections import OrderedDict

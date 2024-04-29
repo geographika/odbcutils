@@ -17,13 +17,12 @@ pip install -r requirements.txt
 black .
 flake8 .
 
-$env:TEST_CONN = "DRIVER={SQL Server};SERVER=W19-PMS-SQL\SQL2019Dev;DATABASE=msautotest;uid=msautotest;pwd=msautotest"
+$env:TEST_CONN = "DRIVER={SQL Server};SERVER=MYSERVER;DATABASE=msautotest;uid=msautotest;pwd=msautotest"
 
-mypy odbcutils.py tests
+mypy odbcutils/odbcutils.py tests
 
     C:\Python310\python.exe -m pip install --upgrade pip
-    C:\Python310\Scripts\pip install virtualenv
-    C:\Python310\Scripts\virtualenv C:\VirtualEnvs\odbcutils
+    C:\Python310\python -m venv C:\VirtualEnvs\odbcutils
     C:\VirtualEnvs\odbcutils\scripts\activate.ps1
 
     pip install -r D:\GitHub\odbcutils\requirements.txt
