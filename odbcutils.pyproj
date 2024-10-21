@@ -38,12 +38,14 @@
     <Content Include=".travis.yml" />
     <Content Include="LICENSE" />
     <Content Include="MANIFEST.in" />
+    <Content Include="notes.private.ignore" />
     <Content Include="odbcutils\py.typed" />
     <Content Include="pytest.ini" />
     <Content Include="readme-dev.rst" />
     <Content Include="README.rst" />
     <Content Include="requirements.txt" />
     <Content Include="setup.cfg" />
+    <Content Include="tests\select.sql" />
     <Content Include="tox.ini" />
   </ItemGroup>
   <ItemGroup>
